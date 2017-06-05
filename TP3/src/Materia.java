@@ -7,9 +7,9 @@ public class Materia {
 		inicio = Inicio;
 		fin = Fin;
 	}
-	
+
 	public int getCantidadHoras(){
-		return inicio-fin;
+		return fin-inicio;
 	}
 
 	public int getInicio() {
@@ -41,6 +41,5 @@ public class Materia {
 			return false;
 
 		return true;
-		
 	}
 }

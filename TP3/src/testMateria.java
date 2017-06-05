@@ -18,18 +18,18 @@ public class testMateria {
 		totalMaterias.agregarMateria(materia3);
 	}
 	
-	@Test
-	public void getMateriasTest() {
-		assertEquals(totalMaterias,totalMaterias.getMaterias());
-	}
-	
 	@Test(expected = NullPointerException.class)
 	public void getMateriaInvalidaTest(){
 		totalMaterias.getMateria(5);
 	}
 	
 	@Test
-	public void testTomarMateria(){
+	public void getMateriasTest() {
+		assertEquals(totalMaterias,totalMaterias.getMaterias());
+	}
+	
+	@Test
+	public void tomarMateriaTest(){
 		Materia m = new Materia(2,3);
 		
 		assertEquals(totalMaterias.getMateria(1), m);
