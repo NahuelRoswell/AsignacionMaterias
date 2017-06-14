@@ -11,7 +11,7 @@ public class SolverTest {
 	@Before
 	public void construir(){
 		ArrayList<Materia> materias = new ArrayList<Materia>();
-		materias.add(new Materia(3,5));
+		materias.add(new Materia(3,6));
 		materias.add(new Materia(9,10));
 		materias.add(new Materia(0,3));
 		materias.add(new Materia(7,9));
@@ -26,7 +26,7 @@ public class SolverTest {
 		
 		expected.add(new Materia(9,10));
 		expected.add(new Materia(7,9));
-		expected.add(new Materia(3,5));
+		expected.add(new Materia(3,6));
 		expected.add(new Materia(0,3));
 		
 		assertEquals(expected, solver.ordenarMaterias());

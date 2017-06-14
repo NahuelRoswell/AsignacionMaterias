@@ -12,7 +12,7 @@ public class Instancia {
 		for(Materia m : materias)
 			ret.add(m);
 		
-		return null;
+		return ret;
 	}
 	
 	public Materia getMateria(int indice){

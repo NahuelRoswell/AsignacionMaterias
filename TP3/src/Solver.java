@@ -53,8 +53,8 @@ public class Solver {
 		Solver solver = new Solver(instancia, Comparador.porMenosHoras());
 		ArrayList<Materia> ordenado = solver.ordenarMaterias();
 		
-//		for(Materia m : ordenado)
-//			System.out.println(m);
+		for(Materia m : ordenado)
+			System.out.println(m);
 		
 	}
 	
