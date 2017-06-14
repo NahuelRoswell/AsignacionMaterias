@@ -25,37 +25,23 @@ public class Solver {
 
 	private ArrayList<Aula> construirSolucion(ArrayList<Materia> ordenadas){
 		ArrayList<Aula> ret = new ArrayList<Aula>();
+		ret.add(new Aula());
+		
 		for(Materia materias: ordenadas)
 			buscarAulaPara(materias,ret);
 		
 		return ret;
 	}
 	
-	private void buscarAulaPara(Materia materia, ArrayList<Aula> aulas){
+	void buscarAulaPara(Materia materia, ArrayList<Aula> aulas){
 		for(Aula aula : aulas)
-			if (aula.puedeAgregar(materia)){
-				aula.agregar(materia);
+			if (aula.agregar(materia))
 				break;
-			} else{
+			else{
 				aulas.add(new Aula());
 				aulas.get(aulas.size()-1).agregar(materia);
+				break;
 			}
-	}
-	
-	public static void main(String[] args) {
-		ArrayList<Materia> expected = new ArrayList<Materia>();
-		
-		expected.add(new Materia(9,10));
-		expected.add(new Materia(7,9));
-		expected.add(new Materia(3,5));
-		expected.add(new Materia(0,3));
-		Instancia instancia = new Instancia(expected);
-		Solver solver = new Solver(instancia, Comparador.porMenosHoras());
-		ArrayList<Materia> ordenado = solver.ordenarMaterias();
-		
-		for(Materia m : ordenado)
-			System.out.println(m);
-		
 	}
 	
 }

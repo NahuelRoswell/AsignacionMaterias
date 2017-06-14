@@ -7,18 +7,21 @@ public class Aula {
 		materias = new ArrayList<Materia>();
 	}
 
-	public void agregar(Materia materia){	//puede ir un if no se superpone....
-		if (puedeAgregar(materia))
+	public boolean agregar(Materia materia){	//puede ir un if no se superpone....
+		if (puedeAgregar(materia)){
 			materias.add(materia);
+			return true;
+		}
+		return false;
 	}
 	
-	public boolean puedeAgregar(Materia materia){
+	boolean puedeAgregar(Materia materia){
 		if (materias.isEmpty())
 			return true;
 		
-		boolean ret = false;
+		boolean ret = true;
 		for(Materia m: materias)
-			ret = ret || hayEspacioLibre(m, materia);
+			ret = ret && hayEspacioLibre(m, materia);
 			
 		return ret;
 	}

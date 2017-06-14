@@ -51,6 +51,18 @@ public class AulaTest {
 	}
 	
 	@Test
+	public void agregarMateriaEnArreglo(){
+		boolean ret = true;
+		ArrayList<Materia> materias = aula.getMaterias();
+		Materia materia = new Materia(14,15);
+		
+		for(Materia m: materias)
+			ret = ret && aula.hayEspacioLibre(m, materia);
+		
+		assertFalse(ret);
+	}
+	
+	@Test
 	public void cantidadMaterias(){
 		assertEquals(3,aula.cantidadMaterias());
 	}
