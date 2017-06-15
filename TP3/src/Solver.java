@@ -44,21 +44,6 @@ public class Solver {
 			}
 	}
 	
-	public static void main(String[] args) {
-		ArrayList<Materia> materias = new ArrayList<Materia>();
-		materias.add(new Materia(18,20));
-		materias.add(new Materia(14,15));
-		materias.add(new Materia(19,20));
-		
-		Instancia instancia = new Instancia(materias);
-		
-		Solver solver = new Solver(instancia, Comparador.porMenosHoras());
-		
-		ArrayList<Aula> aulas = solver.resolver();
-		System.out.println(aulas.size());
-		aulas.get(0).print();
-		
-	}
 }
 
 

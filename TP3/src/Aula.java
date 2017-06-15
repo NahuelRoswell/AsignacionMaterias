@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Aula {
 	ArrayList<Materia> materias;
@@ -78,8 +80,6 @@ public class Aula {
 			System.out.println(m);
 		}
 	}
-	
-	
 	
 	
 }

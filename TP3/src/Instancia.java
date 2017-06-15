@@ -35,6 +35,9 @@ public class Instancia {
 		return materias.size();
 	}
 	
+	public void limpiar(){ //testear
+		materias.clear();
+	}
 	void Guardar(String archivo){
 		 Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		 String json = gson.toJson(this);
