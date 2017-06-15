@@ -54,7 +54,7 @@ public class Instancia {
 
 	
 	
-	static Instancia leerJSON(String archivo) {
+	static Instancia Cargar(String archivo) {
 		Gson gson = new Gson();
 		Instancia ret = null;
 

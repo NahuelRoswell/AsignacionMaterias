@@ -1,20 +1,8 @@
 {
   "materias": [
     {
-      "inicio": 9,
+      "inicio": 11,
       "fin": 12
-    },
-    {
-      "inicio": 9,
-      "fin": 12
-    },
-    {
-      "inicio": 12,
-      "fin": 13
-    },
-    {
-      "inicio": 10,
-      "fin": 11
     }
   ]
 }

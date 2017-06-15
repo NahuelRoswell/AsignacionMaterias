@@ -7,6 +7,8 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
@@ -46,7 +48,7 @@ public class VentanaPrueba {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		instancia = Instancia.leerJSON("Instancia");
+		instancia = Instancia.Cargar("Instancia");
 		frame = new JFrame();
 		frame.setBounds(100, 100, 864, 773);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -86,27 +88,31 @@ public class VentanaPrueba {
 		}
 		
 		
-		 //String s = (String)model.getValueAt(2,2); // fila y columna
-		int ind = 1;
-		for(Aula aula: aulas){
-			if(aula!=null) 
-			for(int j=0;j<aula.cantidadMaterias();j++){
-				Materia mat = aula.getMateria(j);
-				//System.out.println(mat);
-				if(mat!=null){
-					//System.out.println(mat.getNombre()+" entroo");
-					model.setValueAt("Materia " +j, mat.getInicio()-8,ind);
-				}
-			}
-			ind++;	
-		} 
-		
+		int indice = 1;
+		for (Aula aula : aulas) {
+			for(Materia materia: aula.getMaterias())
+				rellenarCeldas(materia,indice,model);
+					
+			indice++;
+		}
 
-		
-		
+		model.addTableModelListener(new TableModelListener() {
+			@Override
+			public void tableChanged(TableModelEvent arg0) {
+				System.out.println("hola");
+			}
+		});
 		table.setModel(model);
 
 		scrollPane.setViewportView(table);
 		frame.getContentPane().setLayout(groupLayout);
 	}
+	
+	private void rellenarCeldas(Materia materia, int indice, DefaultTableModel model){
+		int totalDeHoras = materia.getCantidadHoras();
+		
+		for (int i = 0; i < totalDeHoras; i++) 
+			model.setValueAt("relleno", (materia.getInicio()+i)-8, indice );
+	}
+
 }
