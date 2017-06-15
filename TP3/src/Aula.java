@@ -52,7 +52,7 @@ public class Aula {
 			auxiliar.add(m);
 		
 		return materias;
-	}
+	} 
 	
 	@Override
 	public boolean equals(Object obj){

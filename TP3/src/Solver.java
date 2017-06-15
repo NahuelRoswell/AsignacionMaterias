@@ -15,7 +15,7 @@ public class Solver {
 		ArrayList<Materia> ordenadas = ordenarMaterias();
 		return construirSolucion(ordenadas);
 	}
-	
+	 
 	ArrayList<Materia> ordenarMaterias(){
 		ArrayList<Materia> materias = instancia.getMaterias();
 		Collections.sort(materias, comparador);

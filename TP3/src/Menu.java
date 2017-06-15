@@ -178,7 +178,7 @@ public class Menu {
 		});
 		btnGuardar.setBounds(288, 484, 79, 31);
 		panel.add(btnGuardar);
-
+ 
 		JButton btnCalcularAulas = new JButton("Calcular Aulas");
 		btnCalcularAulas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

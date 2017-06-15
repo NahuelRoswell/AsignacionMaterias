@@ -83,7 +83,7 @@ public class VentanaPrueba {
 		
 		for (int i = 0; i < 15; i++) 
 			model.addRow(new String[] { String.valueOf(i + 8) + " - " +String.valueOf(i+9) +"hs :" });
-		
+		 
 		
 		int indice = 1;
 		for (Aula aula : aulas) {

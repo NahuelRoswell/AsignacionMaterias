@@ -53,7 +53,7 @@ public class Instancia {
 		 }
 
 	
-	
+	 
 	static Instancia Cargar(String archivo) {
 		Gson gson = new Gson();
 		Instancia ret = null;

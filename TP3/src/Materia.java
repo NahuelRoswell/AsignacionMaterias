@@ -30,7 +30,7 @@ public class Materia {
 	public String toString(){
 		return nombre +" [" +inicio +"-" +fin +"] ";
 	}
-	
+	 
 	@Override
 	public boolean equals(Object obj){
 		if (this == obj) 
