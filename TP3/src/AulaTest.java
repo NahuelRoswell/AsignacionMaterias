@@ -10,10 +10,10 @@ public class AulaTest {
 
 	@Before
 	public void instancia(){
-		Materia materia1 = new Materia(13,14);
-		Materia materia2 = new Materia(14,15);
-		Materia materia3 = new Materia(15,16);
-		Materia materia4 = new Materia(16,18);
+		Materia materia1 = new Materia("geografia",13,14);
+		Materia materia2 = new Materia("psec",14,15);
+		Materia materia3 = new Materia("programacion",15,16);
+		Materia materia4 = new Materia("orga",16,18);
 		
 		aula = new Aula();
 		aula.agregar(materia1);
@@ -26,37 +26,37 @@ public class AulaTest {
 	public void puedeAgregarMateriaTest(){
 		Aula aula = new Aula();
 		
-		assertTrue(aula.puedeAgregar(new Materia(9,1)));
+		assertTrue(aula.puedeAgregar(new Materia("matematica",9,1)));
 	}
 	
 	@Test
 	public void agregarMateriaSuperpuesta(){
 		Aula aula = new Aula();
 		
-		aula.agregar(new Materia(9,1));
-		aula.puedeAgregar(new Materia(9,1));
-		assertEquals(false, aula.puedeAgregar(new Materia(9,1)));
+		aula.agregar(new Materia("progra",9,1));
+
+		assertEquals(false, aula.puedeAgregar(new Materia("progra",9,1)));
 	}
 	
 	@Test 
 	public void materiaLibreAnterior(){
-		Materia materia = new Materia(22,23);
+		Materia materia = new Materia("progra",22,23);
 	
-		assertFalse(aula.seSuperpone(materia, new Materia(21,22)));
+		assertFalse(aula.seSuperpone(materia, new Materia("progra",21,22)));
 	}
 	
 	@Test
 	public void materiaLibreDespues(){
-		Materia materia = new Materia(22,23);
+		Materia materia = new Materia("psec",22,23);
 		
-		assertFalse(aula.seSuperpone(materia, new Materia(23,24)));
+		assertFalse(aula.seSuperpone(materia, new Materia("logica",23,24)));
 	}
 	
 	@Test
 	public void agregarMateriaEnArreglo(){
 		boolean ret = true;
 		ArrayList<Materia> materias = aula.getMaterias();
-		Materia materia = new Materia(14,15);
+		Materia materia = new Materia("psec",14,15);
 		
 		for(Materia m: materias)
 			ret = ret && aula.seSuperpone(m, materia);
@@ -81,16 +81,16 @@ public class AulaTest {
 	
 	@Test
 	public void tomarMateriaTest(){
-		Materia m = new Materia(14,15);
+		Materia m = new Materia("psec", 14,15);
 		
 		assertEquals(aula.getMateria(1), m);
 	}
 	
 	@Test
 	public void agregarSuperpuesta(){
-		Materia materia = new Materia(17,18);
+		Materia materia = new Materia("historia",17,18);
 		
-		assertEquals(false, aula.puedeAgregar(materia));
+		assertFalse(aula.puedeAgregar(materia));
 	}
 
 }

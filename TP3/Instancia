@@ -1,8 +1,19 @@
 {
   "materias": [
     {
-      "inicio": 11,
-      "fin": 12
+      "inicio": 10,
+      "fin": 11,
+      "nombre": "Historia"
+    },
+    {
+      "inicio": 10,
+      "fin": 12,
+      "nombre": "Geografia"
+    },
+    {
+      "inicio": 13,
+      "fin": 15,
+      "nombre": "Matematica"
     }
   ]
 }

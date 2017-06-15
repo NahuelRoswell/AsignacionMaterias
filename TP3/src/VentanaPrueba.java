@@ -17,7 +17,7 @@ import javax.swing.text.TableView.TableRow;
 
 public class VentanaPrueba {
 
-	private JFrame frame;
+	protected JFrame frame;
 	private JTable table;
 	private Instancia instancia;
 
@@ -76,16 +76,13 @@ public class VentanaPrueba {
 		table = new JTable();
 		DefaultTableModel model = new DefaultTableModel();
 		model.addColumn("Horario/Aula ");
-		//ArrayList<Aula> aulas = ret.getAulas();
-		System.out.println(aulas.size());
 		
-		for (int i = 0; i < aulas.size(); i++) {
+		
+		for (int i = 0; i < aulas.size(); i++) 
 			model.addColumn("Aula " + String.valueOf(i + 1));
-		}
 		
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < 15; i++) 
 			model.addRow(new String[] { String.valueOf(i + 8) + " - " +String.valueOf(i+9) +"hs :" });
-		}
 		
 		
 		int indice = 1;
@@ -112,7 +109,7 @@ public class VentanaPrueba {
 		int totalDeHoras = materia.getCantidadHoras();
 		
 		for (int i = 0; i < totalDeHoras; i++) 
-			model.setValueAt("relleno", (materia.getInicio()+i)-8, indice );
+			model.setValueAt(materia.getNombre(), (materia.getInicio()+i)-8, indice );
 	}
 
 }

@@ -2,10 +2,12 @@
 public class Materia {
 	private int inicio;
 	private int fin;
+	private String nombre;
 	
-	public Materia(int Inicio, int Fin){
+	public Materia(String Nombre, int Inicio, int Fin){
 		inicio = Inicio;
 		fin = Fin;
+		nombre = Nombre;
 	}
 
 	public int getCantidadHoras(){
@@ -20,9 +22,13 @@ public class Materia {
 		return fin;
 	}
 	
+	public String getNombre(){
+		return nombre;
+	}
+	
 	@Override
 	public String toString(){
-		return "[" +inicio +"-" +fin +"] ";
+		return nombre +" [" +inicio +"-" +fin +"] ";
 	}
 	
 	@Override

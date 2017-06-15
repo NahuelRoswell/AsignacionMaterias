@@ -22,6 +22,7 @@ public class Menu {
 	private JTextField horaInicio;
 	private JTextField horaFin;
 	private Instancia instancia;
+	private JTextField nombreMateria;
 
 	/**
 	 * Launch the application.
@@ -51,12 +52,13 @@ public class Menu {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setBounds(100, 100, 397, 575);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 379, 528);
+		panel.setBounds(12, 0, 379, 528);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
@@ -66,7 +68,7 @@ public class Menu {
 		panel.add(lblInicio);
 
 		horaInicio = new JTextField();
-		horaInicio.setBounds(69, 31, 116, 22);
+		horaInicio.setBounds(79, 31, 116, 22);
 		panel.add(horaInicio);
 		horaInicio.setColumns(10);
 
@@ -77,7 +79,7 @@ public class Menu {
 
 		horaFin = new JTextField();
 		horaFin.setColumns(10);
-		horaFin.setBounds(69, 77, 116, 22);
+		horaFin.setBounds(79, 77, 116, 22);
 		panel.add(horaFin);
 
 		JButton btnAgregarMateria = new JButton("Agregar materia");
@@ -86,13 +88,14 @@ public class Menu {
 				if (bienIngresadas(horaInicio, horaFin) && horarioCorrecto(horaInicio, horaFin)) {
 					Integer inicio = Integer.parseInt(horaInicio.getText());
 					Integer fin = Integer.parseInt(horaFin.getText());
-
+					String nombre = nombreMateria.getText();
+					
 					if (instancia != null)
-						instancia.agregar(new Materia(inicio, fin));
+						instancia.agregar(new Materia(nombre, inicio, fin));
 					else {
 						instancia = Instancia.Cargar("Instancia");
 						instancia.limpiar();
-						instancia.agregar(new Materia(inicio, fin));
+						instancia.agregar(new Materia(nombre, inicio, fin));
 					}
 				}
 			}
@@ -146,13 +149,19 @@ public class Menu {
 				return false;
 			}
 		});
-		btnAgregarMateria.setBounds(212, 47, 126, 31);
+		btnAgregarMateria.setBounds(230, 73, 126, 31);
 		panel.add(btnAgregarMateria);
 
 		JButton btnCargarMaterias = new JButton("Cargar materias");
 		btnCargarMaterias.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				instancia = Instancia.Cargar("Instancia");
+				
+				
+				//borrar
+				ArrayList<Materia> materias = instancia.getMaterias();
+				for(Materia materia: materias)
+					System.out.println(materia);
 			}
 		});
 		btnCargarMaterias.setBounds(129, 484, 126, 31);
@@ -171,6 +180,14 @@ public class Menu {
 		panel.add(btnGuardar);
 
 		JButton btnCalcularAulas = new JButton("Calcular Aulas");
+		btnCalcularAulas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VentanaPrueba ventana = new VentanaPrueba();
+				ventana.frame.setVisible(true);
+				frame.setVisible(false);
+			
+			}
+		});
 		btnCalcularAulas.setBounds(129, 427, 126, 31);
 		panel.add(btnCalcularAulas);
 
@@ -192,5 +209,15 @@ public class Menu {
 		});
 		btnNuevo.setBounds(12, 484, 79, 31);
 		panel.add(btnNuevo);
+		
+		JLabel lblNombre = new JLabel("Nombre:");
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNombre.setBounds(12, 123, 65, 16);
+		panel.add(lblNombre);
+		
+		nombreMateria = new JTextField();
+		nombreMateria.setColumns(10);
+		nombreMateria.setBounds(79, 122, 116, 22);
+		panel.add(nombreMateria);
 	}
 }
