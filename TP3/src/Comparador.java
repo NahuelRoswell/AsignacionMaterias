@@ -12,6 +12,10 @@ public class Comparador {
 		return ret;
 	}
 	
+	public static Comparator<Materia> lamda(){
+		return (uno,otro) -> (int) (uno.getCantidadHoras() - otro.getCantidadHoras());
+	}
+	
 	public static Comparator<Materia> porMayorHoras(){
 		Comparator<Materia> ret = new Comparator<Materia>(){
 			@Override
