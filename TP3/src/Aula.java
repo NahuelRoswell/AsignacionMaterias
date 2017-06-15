@@ -21,16 +21,18 @@ public class Aula {
 		
 		boolean ret = true;
 		for(Materia m: materias)
-			ret = ret && hayEspacioLibre(m, materia);
+			ret = ret && !seSuperpone(m, materia);
 			
 		return ret;
 	}
 
-	boolean hayEspacioLibre(Materia m, Materia materia){
-		boolean condicionAnterior = materia.getInicio() < m.getInicio() && materia.getFin() <= m.getFin();
-		boolean condicionPosterior = materia.getInicio() >= m.getFin() && materia.getFin() > m.getFin();
+	boolean seSuperpone(Materia materiaFija, Materia otra){
+		boolean condicionAnterior = otra.getInicio() >= materiaFija.getInicio() && otra.getInicio() < materiaFija.getFin();
+		boolean condicionPosterior = otra.getFin() > materiaFija.getInicio() && otra.getFin() <= materiaFija.getFin();
+		boolean mismoInicio = otra.getInicio() == materiaFija.getInicio();
+		boolean mismoFin = otra.getFin() == materiaFija.getFin();
 		
-		return condicionAnterior || condicionPosterior;
+		return condicionAnterior || condicionPosterior || mismoInicio || mismoFin;
 	}
 	
 	public int cantidadMaterias(){
@@ -69,25 +71,15 @@ public class Aula {
 		return ret;
 	}
 	
-	public static void main(String[] args) {
-		Materia materia1 = new Materia(1,2);
-		Materia materia2 = new Materia(2,3);
-		Materia materia3 = new Materia(3,4);
-		
-		Aula totalMaterias = new Aula();
-		totalMaterias.agregar(materia1);
-		totalMaterias.agregar(materia2);
-		totalMaterias.agregar(materia3);
-		
-		
-		Materia mat1 = new Materia(1,2);
-		Materia mat2 = new Materia(2,3);
-		Materia mat3 = new Materia(3,4);
-		Aula m = new Aula();
-		m.agregar(mat1);
-		m.agregar(mat2);
-		m.agregar(mat3);
-		
-		System.out.println(totalMaterias.equals(m));
+	
+	//borrar
+	public void print(){
+		for(Materia m : materias){
+			System.out.println(m);
+		}
 	}
+	
+	
+	
+	
 }

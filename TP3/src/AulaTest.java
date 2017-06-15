@@ -13,11 +13,13 @@ public class AulaTest {
 		Materia materia1 = new Materia(13,14);
 		Materia materia2 = new Materia(14,15);
 		Materia materia3 = new Materia(15,16);
+		Materia materia4 = new Materia(16,18);
 		
 		aula = new Aula();
 		aula.agregar(materia1);
 		aula.agregar(materia2);
 		aula.agregar(materia3);
+		aula.agregar(materia4);
 	}
 	
 	@Test
@@ -32,22 +34,22 @@ public class AulaTest {
 		Aula aula = new Aula();
 		
 		aula.agregar(new Materia(9,1));
-		
-		assertFalse(aula.puedeAgregar(new Materia(9,1)));
+		aula.puedeAgregar(new Materia(9,1));
+		assertEquals(false, aula.puedeAgregar(new Materia(9,1)));
 	}
 	
 	@Test 
 	public void materiaLibreAnterior(){
 		Materia materia = new Materia(22,23);
 	
-		assertTrue(aula.hayEspacioLibre(materia, new Materia(21,22)));
+		assertFalse(aula.seSuperpone(materia, new Materia(21,22)));
 	}
 	
 	@Test
 	public void materiaLibreDespues(){
 		Materia materia = new Materia(22,23);
 		
-		assertTrue(aula.hayEspacioLibre(materia, new Materia(23,24)));
+		assertFalse(aula.seSuperpone(materia, new Materia(23,24)));
 	}
 	
 	@Test
@@ -57,14 +59,14 @@ public class AulaTest {
 		Materia materia = new Materia(14,15);
 		
 		for(Materia m: materias)
-			ret = ret && aula.hayEspacioLibre(m, materia);
+			ret = ret && aula.seSuperpone(m, materia);
 		
 		assertFalse(ret);
 	}
 	
 	@Test
 	public void cantidadMaterias(){
-		assertEquals(3,aula.cantidadMaterias());
+		assertEquals(4,aula.cantidadMaterias());
 	}
 	
 	@Test(expected = NullPointerException.class)
@@ -82,6 +84,13 @@ public class AulaTest {
 		Materia m = new Materia(14,15);
 		
 		assertEquals(aula.getMateria(1), m);
+	}
+	
+	@Test
+	public void agregarSuperpuesta(){
+		Materia materia = new Materia(17,18);
+		
+		assertEquals(false, aula.puedeAgregar(materia));
 	}
 
 }

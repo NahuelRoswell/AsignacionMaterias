@@ -11,6 +11,10 @@ public class Instancia {
 	public Instancia(ArrayList<Materia> Materias){
 		materias = Materias;
 	}
+	
+	public void agregar(Materia materia){
+		materias.add(materia);
+	}
 
 	public ArrayList<Materia> getMaterias() {
 		ArrayList<Materia> ret = new ArrayList<Materia>();
@@ -31,7 +35,7 @@ public class Instancia {
 		return materias.size();
 	}
 	
-	void generarJSON(String archivo){
+	void Guardar(String archivo){
 		 Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		 String json = gson.toJson(this);
 		
@@ -45,9 +49,11 @@ public class Instancia {
 			 throw new IllegalArgumentException("Se intento guardar un archivo nulo. Nombre del archivo: "+archivo);}
 		 }
 
-	static ArrayList<Materia> leerJSON(String archivo) {
+	
+	
+	static Instancia leerJSON(String archivo) {
 		Gson gson = new Gson();
-		ArrayList<Materia> ret = null;
+		Instancia ret = null;
 
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(archivo));
@@ -60,5 +66,13 @@ public class Instancia {
 
 		return ret;
 	}
+	
+	//borrar 
+	public void print(){
+		for (Materia materia : materias){
+			System.out.println(materia);
+		}
+	}
+	
 
 }

@@ -1,0 +1,24 @@
+{
+  "materias": [
+    {
+      "inicio": 8,
+      "fin": 10
+    },
+    {
+      "inicio": 8,
+      "fin": 10
+    },
+    {
+      "inicio": 9,
+      "fin": 11
+    },
+    {
+      "inicio": 12,
+      "fin": 13
+    },
+    {
+      "inicio": 14,
+      "fin": 16
+    }
+  ]
+}
