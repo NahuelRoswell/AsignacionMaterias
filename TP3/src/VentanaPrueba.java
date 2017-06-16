@@ -96,7 +96,7 @@ public class VentanaPrueba {
 		model.addTableModelListener(new TableModelListener() {
 			@Override
 			public void tableChanged(TableModelEvent arg0) {
-				System.out.println("hola");
+//				System.out.println("hola");
 			}
 		});
 		table.setModel(model);

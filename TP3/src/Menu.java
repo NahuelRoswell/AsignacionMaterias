@@ -64,22 +64,22 @@ public class Menu {
 
 		JLabel lblInicio = new JLabel("Inicio:");
 		lblInicio.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblInicio.setBounds(12, 32, 65, 16);
+		lblInicio.setBounds(12, 62, 65, 16);
 		panel.add(lblInicio);
 
 		horaInicio = new JTextField();
-		horaInicio.setBounds(79, 31, 116, 22);
+		horaInicio.setBounds(79, 61, 116, 22);
 		panel.add(horaInicio);
 		horaInicio.setColumns(10);
 
 		JLabel lblFin = new JLabel("Fin:");
 		lblFin.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblFin.setBounds(12, 78, 65, 16);
+		lblFin.setBounds(12, 97, 65, 16);
 		panel.add(lblFin);
 
 		horaFin = new JTextField();
 		horaFin.setColumns(10);
-		horaFin.setBounds(79, 77, 116, 22);
+		horaFin.setBounds(79, 96, 116, 22);
 		panel.add(horaFin);
 
 		JButton btnAgregarMateria = new JButton("Agregar materia");
@@ -115,15 +115,9 @@ public class Menu {
 				String inicio = horaInicio.getText();
 				String fin = horaFin.getText();
 
-				Pattern pat = Pattern.compile("[8-9]|[1]\\d|[2][0-2]"); // del 8
-																		// al 9
-																		// ||
-																		// del
-																		// 10 al
-																		// 19 ||
-																		// 20 al
-																		// 22
-
+				Pattern pat = Pattern.compile("[8-9]|[1]\\d|[2][0-2]"); // del 8 al 9 																		// ||
+																		// del 10 al 19|
+																		// 20 al 22
 				return errorDeIngreso(inicio, fin, pat);
 			}
 
@@ -149,7 +143,7 @@ public class Menu {
 				return false;
 			}
 		});
-		btnAgregarMateria.setBounds(230, 73, 126, 31);
+		btnAgregarMateria.setBounds(218, 57, 126, 31);
 		panel.add(btnAgregarMateria);
 
 		JButton btnCargarMaterias = new JButton("Cargar materias");
@@ -212,12 +206,12 @@ public class Menu {
 		
 		JLabel lblNombre = new JLabel("Nombre:");
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNombre.setBounds(12, 123, 65, 16);
+		lblNombre.setBounds(12, 24, 65, 16);
 		panel.add(lblNombre);
 		
 		nombreMateria = new JTextField();
 		nombreMateria.setColumns(10);
-		nombreMateria.setBounds(79, 122, 116, 22);
+		nombreMateria.setBounds(79, 23, 116, 22);
 		panel.add(nombreMateria);
 	}
 }

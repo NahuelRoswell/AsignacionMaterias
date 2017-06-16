@@ -51,8 +51,6 @@ public class Instancia {
 		 catch(Exception e) { 
 			 throw new IllegalArgumentException("Se intento guardar un archivo nulo. Nombre del archivo: "+archivo);}
 		 }
-
-	
 	 
 	static Instancia Cargar(String archivo) {
 		Gson gson = new Gson();

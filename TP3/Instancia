@@ -14,6 +14,21 @@
       "inicio": 13,
       "fin": 15,
       "nombre": "Matematica"
+    },
+    {
+      "inicio": 12,
+      "fin": 16,
+      "nombre": "Introduccion Mat"
+    },
+    {
+      "inicio": 18,
+      "fin": 22,
+      "nombre": "organizacion"
+    },
+    {
+      "inicio": 18,
+      "fin": 22,
+      "nombre": "SOR"
     }
   ]
 }

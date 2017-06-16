@@ -34,14 +34,15 @@ public class Solver {
 	}
 	
 	void buscarAulaPara(Materia materia, ArrayList<Aula> aulas){
-		for(Aula aula : aulas)
-			if (aula.agregar(materia))
+		for (int i = 0; i < aulas.size(); i++) 
+			if (aulas.get(i).agregar(materia))
 				break;
-			else{
+			else if (i == aulas.size() - 1) {
 				aulas.add(new Aula());
-				aulas.get(aulas.size()-1).agregar(materia);
+				aulas.get(aulas.size() - 1).agregar(materia);
 				break;
 			}
+		
 	}
 	
 }
